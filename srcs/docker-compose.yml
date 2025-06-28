@@ -1,0 +1,64 @@
+services:
+  mariadb:
+    container_name: mariadb
+    networks:
+      - inception
+    build: ./requirements/mariadb
+    image: mariadb:notlatest
+    env_file:
+      - .env
+    volumes:
+      - mariadb:/var/lib/mysql
+    restart: always
+    expose:
+      - "3306"
+  
+  nginx:
+    container_name: nginx
+    networks:
+      - inception
+    depends_on:
+      - wordpress
+    build: ./requirements/nginx
+    image: nginx:notlatest
+    env_file:
+      - .env
+    volumes:
+      - wordpress:/var/www/wordpress
+    restart: always
+    ports:
+      - "443:443"
+
+  wordpress:
+    container_name: wordpress
+    networks:
+      - inception
+    depends_on:
+      - mariadb
+    build: ./requirements/wordpress
+    image: notlatest
+    env_file:
+      - .env
+    volumes:
+      - wordpress:/var/www/wordpress
+    restart: always
+    expose:
+      - "9000"
+  
+volumes:
+  mariadb:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/vboxuser/data/mariadb  # Host path for the MariaDB volume
+      o: bind
+  wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/vboxuser/data/wordpress  # Host path for the WordPress files
+      o: bind
+
+networks:
+  inception:
+    driver: bridge

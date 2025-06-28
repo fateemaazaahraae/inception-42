@@ -4,6 +4,7 @@ RUN apt update -y && apt upgrade -y && \
     apt install -y curl php7.4 php-fpm php-mysql mariadb-client && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
+RUN wp theme install twentytwentyfour --activate --path=/var/www/wordpress --allow-root
 # Copy the PHP-FPM configuration file into the container.
 COPY conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
