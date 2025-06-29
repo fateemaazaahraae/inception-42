@@ -33,6 +33,8 @@ wp core install \
   --admin_email="${WP_ADMIN_EMAIL}" \
   --allow-root
 
+wp theme activate twentytwentyfour --allow-root --path=/var/www/wordpress
+
 # Create an Additional Editor User
 wp user create \
     "${WP_USER}" "${WP_USER_EMAIL}" \
