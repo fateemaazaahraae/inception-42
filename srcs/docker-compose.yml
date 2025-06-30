@@ -50,13 +50,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/vboxuser/data/mariadb  # Host path for the MariaDB volume
+      device: /home/fbazaz/data/mariadb  # Host path for the MariaDB volume
       o: bind
   wordpress:
     driver: local
     driver_opts:
       type: none
-      device: /home/vboxuser/data/wordpress  # Host path for the WordPress files
+      device: /home/fbazaz/data/wordpress  # Host path for the WordPress files
       o: bind
 
 networks:

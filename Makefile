@@ -4,7 +4,7 @@ COMPOSE = docker-compose -f srcs/docker-compose.yml
 VOLUMES = srcs_wordpress srcs_mariadb
 
 # Data folders (if using bind mount)
-DATA_DIRS = /home/vboxuser/data/wordpress /home/vboxuser/data/mariadb
+DATA_DIRS = /home/fbazaz/data/wordpress /home/fbazaz/data/mariadb
 
 all: 
 	@echo "🔧 Building and 🚀 Starting containers..."
