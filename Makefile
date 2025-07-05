@@ -4,7 +4,7 @@ COMPOSE = docker-compose -f srcs/docker-compose.yml
 VOLUMES = srcs_wordpress srcs_mariadb
 
 # Data folders (if using bind mount)
-DATA_DIRS = /home/fbazaz/data/wordpress /home/fbazaz/data/mariadb
+DATA_DIRS = /home/$(USER)/data/wordpress /home/$(USER)/data/mariadb
 
 all: 
 	@echo "🔧 Building and 🚀 Starting containers..."
@@ -20,7 +20,7 @@ clean: down
 	@docker volume rm -f $(VOLUMES)
 
 fclean: clean
-	@echo "🗑  Deleting data directories (bind mount)..."
+	@echo "🗑  Deleting data directories ..."
 	@sudo rm -rf $(DATA_DIRS)
 
 re: fclean all
