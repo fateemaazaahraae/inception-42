@@ -15,6 +15,10 @@ wp core download --allow-root
 # Move the Sample Configuration File
 mv wp-config-sample.php wp-config.php
 
+echo "define('WP_REDIS_HOST', 'redis');" >> wp-config.php
+echo "define('WP_REDIS_PORT', 6379);" >> wp-config.php
+echo "define('WP_CACHE', true);" >> wp-config.php
+
 # Configure the Database Connection
 sed -i "s/define( 'DB_NAME', 'database_name_here' );/define( 'DB_NAME', '${MYSQL_DATABASE}' );/" wp-config.php
 sed -i "s/define( 'DB_USER', 'username_here' );/define( 'DB_USER', '${MYSQL_USER}' );/" wp-config.php
@@ -32,6 +36,9 @@ wp core install \
   --admin_password="${WP_ADMIN_PASSWORD}" \
   --admin_email="${WP_ADMIN_EMAIL}" \
   --allow-root
+
+wp plugin install redis-cache --activate --allow-root
+wp redis enable --allow-root
 
 # Create an Additional Editor User
 wp user create \

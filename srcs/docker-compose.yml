@@ -35,6 +35,7 @@ services:
       - inception
     depends_on:
       - mariadb
+      # - redis
     build: ./requirements/wordpress
     image: wordpress:notlatest
     env_file:
@@ -44,6 +45,33 @@ services:
     restart: always
     expose:
       - "9000"
+  # redis:
+  #   container_name: redis
+  #   build: ./requirements/bonus/redis
+  #   networks:
+  #     - inception
+  #   expose:
+  #     - 6379
+  #   restart: always
+  adminer:
+    container_name: adminer
+    build: ./requirements/bonus/adminer
+    image: adminer:custom
+    networks:
+      - inception
+    ports:
+      - "8080:8080"
+    restart: always
+  resume:
+    container_name: resume
+    build: ./requirements/bonus/resume_website
+    image: resume:notlatest
+    networks:
+      - inception
+    # volumes:
+    #   - static_site:/usr/share/nginx/html
+    ports:
+      - "8085:80"
   
 volumes:
   mariadb:
@@ -58,6 +86,7 @@ volumes:
       type: none
       device: /home/$USER/data/wordpress  # Host path for the WordPress files
       o: bind
+  # static_site:
 
 networks:
   inception:
