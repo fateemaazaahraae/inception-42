@@ -2,7 +2,7 @@ FROM debian:bullseye
 
 RUN apt-get update && apt-get install -y \
     php php-cli php-fpm \
-    php-mysql php-mbstring php-ctype php-session \
+    php-mysql php-mbstring \
     wget curl unzip && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 

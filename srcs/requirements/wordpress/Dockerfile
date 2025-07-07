@@ -11,6 +11,4 @@ COPY tools/wordpress.sh /usr/local/bin/wordpress.sh
 
 RUN chmod +x /usr/local/bin/wordpress.sh
 
-# EXPOSE 9000
-
 CMD ["/usr/local/bin/wordpress.sh"]

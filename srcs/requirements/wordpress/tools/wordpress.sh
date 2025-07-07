@@ -37,8 +37,8 @@ wp core install \
   --admin_email="${WP_ADMIN_EMAIL}" \
   --allow-root
 
-wp plugin install redis-cache --activate --allow-root
-wp redis enable --allow-root
+# wp plugin install redis-cache --activate --allow-root
+# wp redis enable --allow-root
 
 # Create an Additional Editor User
 wp user create \

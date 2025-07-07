@@ -12,7 +12,6 @@ services:
     restart: always
     expose:
       - "3306"
-  
   nginx:
     container_name: nginx
     networks:
@@ -28,14 +27,12 @@ services:
     restart: always
     ports:
       - "443:443"
-
   wordpress:
     container_name: wordpress
     networks:
       - inception
     depends_on:
       - mariadb
-      # - redis
     build: ./requirements/wordpress
     image: wordpress:notlatest
     env_file:
@@ -45,14 +42,6 @@ services:
     restart: always
     expose:
       - "9000"
-  # redis:
-  #   container_name: redis
-  #   build: ./requirements/bonus/redis
-  #   networks:
-  #     - inception
-  #   expose:
-  #     - 6379
-  #   restart: always
   adminer:
     container_name: adminer
     build: ./requirements/bonus/adminer
@@ -68,25 +57,36 @@ services:
     image: resume:notlatest
     networks:
       - inception
-    # volumes:
-    #   - static_site:/usr/share/nginx/html
     ports:
       - "8085:80"
-  
+  cadvisor:
+    container_name: cadvisor
+    build: ./requirements/bonus/cadvisor/.
+    image: cadvisor:42
+    ports:
+      - "3000:8080"
+    networks:
+      - inception
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro 
+      - /sys:/sys:ro 
+      - /var/lib/docker/:/var/lib/docker:ro
+    restart: always
+
 volumes:
   mariadb:
     driver: local
     driver_opts:
       type: none
-      device: /home/$USER/data/mariadb  # Host path for the MariaDB volume
+      device: /home/$USER/data/mariadb
       o: bind
   wordpress:
     driver: local
     driver_opts:
       type: none
-      device: /home/$USER/data/wordpress  # Host path for the WordPress files
+      device: /home/$USER/data/wordpress
       o: bind
-  # static_site:
 
 networks:
   inception:
