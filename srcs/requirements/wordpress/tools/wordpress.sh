@@ -12,6 +12,7 @@ mv wp-cli.phar /usr/local/bin/wp
 # Download WordPress Core
 wp core download --allow-root
 
+
 # Move the Sample Configuration File
 mv wp-config-sample.php wp-config.php
 
@@ -37,8 +38,6 @@ wp core install \
   --admin_email="${WP_ADMIN_EMAIL}" \
   --allow-root
 
-# wp plugin install redis-cache --activate --allow-root
-# wp redis enable --allow-root
 
 # Create an Additional Editor User
 wp user create \
@@ -46,6 +45,8 @@ wp user create \
     --user_pass="${WP_USER_PASSWORD}" \
     --role=editor \
     --allow-root
+
+wp theme activate twentytwentyfour --allow-root
 
 # Prepare PHP-FPM Runtime Directory
 mkdir -p /run/php
