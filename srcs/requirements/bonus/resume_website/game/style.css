@@ -1,0 +1,112 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #1e1e2f;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: #ffd700;
+}
+
+.controls {
+  margin-bottom: 15px;
+}
+
+select, button {
+  padding: 6px 12px;
+  font-size: 16px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+select {
+  background-color: #34495e;
+  color: white;
+}
+
+button {
+  background-color: #e74c3c;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c0392b;
+}
+
+.stats {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.game-board {
+  display: grid;
+  grid-gap: 12px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.card {
+  width: 80px;
+  height: 80px;
+  background-color: #3498db;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.4s;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 80px;
+  font-size: 28px;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .front {
+  background-color: #3498db;
+}
+
+.card .back {
+  background-color: #2ecc71;
+  transform: rotateY(180deg);
+}
+
+/* ✨ Animations */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotateZ(0deg); }
+  25% { transform: rotateZ(5deg); }
+  50% { transform: rotateZ(-5deg); }
+  75% { transform: rotateZ(3deg); }
+}
+
+.shake {
+  animation: shake 0.4s;
+}
+
+.matched {
+  animation: wiggle 0.4s ease-in-out;
+}
