@@ -45,3 +45,27 @@ Before running the project, ensure you have the following installed:
 
 You must create a `.env` file at the root of the project. It contains sensitive configuration like:
 
+DOMAIN_NAME=mydomain.com
+WP_DB_NAME=wordpress
+WP_DB_USER=wp_user
+WP_DB_PASSWORD=secure_password
+DB_ROOT_PASSWORD=root_password
+WP_ADMIN_USER=admin
+WP_ADMIN_PASSWORD=admin_pass
+WP_ADMIN_EMAIL=admin@example.com
+....
+
+
+> 💡 This file is **not included** in the repository for security reasons. Do **not** commit it!
+
+---
+
+## 🚀 How to Run the Project
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/yourusername/inception.git
+cd inception```
+
+1. **Clone the repository:**
