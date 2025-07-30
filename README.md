@@ -137,14 +137,8 @@ cd inception
 <hr />
 
 <h2>👨‍💻 Author</h2>
-<p>Made with ❤️ by <strong>[Your Name]</strong><br />
+<p>Made with ❤️ by <strong>Fatima Zahrae Bazaz (fbazaz)</strong><br />
 1337 / 42 Network</p>
 
-<hr />
-
-<h2>📜 License</h2>
-<p>This project is part of the 1337/42 School curriculum.<br />
-No commercial use is intended.</p>
 
 </body>
-</html>
