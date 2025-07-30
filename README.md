@@ -79,7 +79,7 @@ cd inception
 </code></pre>
 
 <h3>3. Build and Start the Containers</h3>
-<pre><code>docker-compose up --build
+<pre><code>make
 </code></pre>
 
 <p>This will:</p>
