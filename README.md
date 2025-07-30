@@ -104,7 +104,7 @@ cd inception
 
 <h2>🧹 Clean Up</h2>
 <p>To stop and remove all containers, networks, and volumes:</p>
-<pre><code>docker-compose down --volumes
+<pre><code>make fclean --> (docker-compose down -v)
 </code></pre>
 <p><em>This also removes persistent volumes (use with caution).</em></p>
 
