@@ -1,4 +1,4 @@
-COMPOSE = docker-compose -f srcs/docker-compose.yml
+COMPOSE = docker compose -f srcs/docker-compose.yml
 
 DATA_DIRS = /home/$(USER)/data/wordpress /home/$(USER)/data/mariadb
 

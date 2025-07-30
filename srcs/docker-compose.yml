@@ -61,10 +61,10 @@ services:
     ports:
       - "8080:8080"
     restart: always
-  resume:
-    container_name: resume
-    build: ./requirements/bonus/resume_website
-    image: resume:notlatest
+  game:
+    container_name: game
+    build: ./requirements/bonus/game
+    image: game:notlatest
     networks:
       - inception
     ports:
