@@ -95,8 +95,9 @@ cd inception
 <ul>
   <li><strong>WordPress</strong>: <code>https://yourdomain.com</code></li>
   <li><strong>WordPress Admin</strong>: <code>https://yourdomain.com/wp-admin</code></li>
-  <li><strong>Adminer</strong> (if added): <code>https://yourdomain.com/adminer</code></li>
-  <li><strong>FTP</strong> (if added): via FTP client on port 21 or 21000</li>
+  <li><strong>Adminer</strong> (if added): <code>http://yourdomain.com:adminerport</code></li>
+  <li><strong>Static website</strong> (if added): <code>http://yourdomain.com:staticwebsiteport</code></li>
+  
 </ul>
 
 <hr />
