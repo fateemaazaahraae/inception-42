@@ -1,48 +1,87 @@
-# 🌀 Inception
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inception Project</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 40px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #1e88e5;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 15px;
+      overflow-x: auto;
+      border-radius: 4px;
+    }
+    blockquote {
+      border-left: 4px solid #ccc;
+      margin: 1em 0;
+      padding-left: 1em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
 
-## 📦 1337 / 42 Project – System Administration & Docker
+<h1>🌀 Inception</h1>
 
-**Inception** is a DevOps-focused project from the 1337/42 curriculum. The goal is to design and deploy a secure, scalable, and containerized system infrastructure using only Docker and Docker Compose — without relying on pre-built images.
+<h2>📦 1337 / 42 Project – System Administration & Docker</h2>
 
-The project simulates a real-world DevOps environment, focusing on isolation, automation, and service orchestration.
+<p><strong>Inception</strong> is a DevOps-focused project from the 1337/42 curriculum. The goal is to design and deploy a secure, scalable, and containerized system infrastructure using only Docker and Docker Compose — without relying on pre-built images.</p>
 
----
+<p>The project simulates a real-world DevOps environment, focusing on isolation, automation, and service orchestration.</p>
 
-## 🧠 Project Objectives
+<hr />
 
-- Understand and implement the concept of containerization.
-- Use Dockerfiles to build your own images for every service.
-- Use Docker Compose to orchestrate multi-container applications.
-- Secure and isolate services properly using Docker networks and volumes.
-- Store persistent data using Docker volumes.
-- Serve a WordPress website with a MariaDB database, all in containers.
-- *(Bonus)* Add optional services like Redis, Adminer, FTP server, and more.
+<h2>🧠 Project Objectives</h2>
+<ul>
+  <li>Understand and implement the concept of containerization.</li>
+  <li>Use Dockerfiles to build your own images for every service.</li>
+  <li>Use Docker Compose to orchestrate multi-container applications.</li>
+  <li>Secure and isolate services properly using Docker networks and volumes.</li>
+  <li>Store persistent data using Docker volumes.</li>
+  <li>Serve a WordPress website with a MariaDB database, all in containers.</li>
+  <li><em>(Bonus)</em> Add optional services like Redis, Adminer, FTP server, and more.</li>
+</ul>
 
----
+<hr />
 
-## 🧱 Project Architecture
+<h2>🧱 Project Architecture</h2>
+<p>The project consists of several services, each in its own container:</p>
+<ul>
+  <li><strong>NGINX</strong>: Acts as a reverse proxy and handles HTTPS using SSL.</li>
+  <li><strong>WordPress</strong>: A CMS served via NGINX and connected to MariaDB.</li>
+  <li><strong>MariaDB</strong>: A relational database used by WordPress.</li>
+  <li><strong>(Optional Bonus)</strong>:
+    <ul>
+      <li>Redis: Caching service to boost WordPress performance.</li>
+      <li>Adminer: Web-based DB management tool.</li>
+      <li>FTP Server, Static website, etc.</li>
+    </ul>
+  </li>
+</ul>
 
-The project consists of several services, each in its own container:
+<hr />
 
-- **NGINX**: Acts as a reverse proxy and handles HTTPS using SSL.
-- **WordPress**: A CMS served via NGINX and connected to MariaDB.
-- **MariaDB**: A relational database used by WordPress.
-- *(Optional Bonus)*:
-  - **Redis**: Caching service to boost WordPress performance.
-  - **Adminer**: Web-based DB management tool.
-  - **FTP Server**, **Static website**, etc.
+<h2>🔐 .env File Configuration</h2>
+<p>A <code>.env</code> file is <strong>required</strong> to run the project. It contains all sensitive environment variables such as usernames, passwords, and domains.</p>
 
-All services are containerized with **custom Dockerfiles** and managed via **Docker Compose**.
-
----
-
-## 🔐 .env File Configuration
-
-A `.env` file is **required** to run the project. It contains all sensitive environment variables such as usernames, passwords, and domains.
-
-### Example `.env` content:
-```env
-DOMAIN_NAME=yourdomain.com
+<h3>Example <code>.env</code> content:</h3>
+<pre><code>DOMAIN_NAME=yourdomain.com
 
 WP_DB_NAME=wordpress
 WP_DB_USER=wp_user
@@ -56,86 +95,92 @@ WP_ADMIN_EMAIL=admin@example.com
 
 FTP_USER=ftpuser
 FTP_PASSWORD=ftppassword
+</code></pre>
 
-    ⚠️ Make sure not to commit this file. It contains sensitive credentials.
+<blockquote>
+  ⚠️ Make sure <strong>not to commit</strong> this file. It contains sensitive credentials.
+</blockquote>
 
-🚀 How to Run the Project
-1. Clone the Repository
+<hr />
 
-git clone https://github.com/yourusername/inception.git
+<h2>🚀 How to Run the Project</h2>
+
+<h3>1. Clone the Repository</h3>
+<pre><code>git clone https://github.com/yourusername/inception.git
 cd inception
+</code></pre>
 
-2. Create the .env File
-
-Create a .env file in the root directory and fill in the required fields.
-
-touch .env
+<h3>2. Create the <code>.env</code> File</h3>
+<pre><code>touch .env
 # Edit it and add your configuration as shown above
+</code></pre>
 
-3. Build and Start the Containers
+<h3>3. Build and Start the Containers</h3>
+<pre><code>docker-compose up --build
+</code></pre>
 
-docker-compose up --build
+<p>This will:</p>
+<ul>
+  <li>Build all images from their Dockerfiles</li>
+  <li>Create the required containers</li>
+  <li>Run the infrastructure</li>
+</ul>
 
-This will:
+<hr />
 
-    Build all images from their Dockerfiles
+<h2>🌐 Access the Services</h2>
+<ul>
+  <li><strong>WordPress</strong>: <code>https://yourdomain.com</code></li>
+  <li><strong>WordPress Admin</strong>: <code>https://yourdomain.com/wp-admin</code></li>
+  <li><strong>Adminer</strong> (if added): <code>https://yourdomain.com/adminer</code></li>
+  <li><strong>FTP</strong> (if added): via FTP client on port 21 or 21000</li>
+</ul>
 
-    Create the required containers
+<hr />
 
-    Run the infrastructure
+<h2>🧹 Clean Up</h2>
+<p>To stop and remove all containers, networks, and volumes:</p>
+<pre><code>docker-compose down --volumes
+</code></pre>
+<p><em>This also removes persistent volumes (use with caution).</em></p>
 
-🌐 Access the Services
+<hr />
 
-After starting the project, you can access the following:
+<h2>🛠️ Technologies Used</h2>
+<ul>
+  <li>Docker</li>
+  <li>Docker Compose</li>
+  <li>NGINX</li>
+  <li>WordPress</li>
+  <li>MariaDB</li>
+  <li>OpenSSL (for self-signed certificates)</li>
+  <li>Bash scripting for automation</li>
+</ul>
 
-    WordPress: https://yourdomain.com
+<hr />
 
-    WordPress Admin: https://yourdomain.com/wp-admin
+<h2>📚 Key Learning Points</h2>
+<ul>
+  <li>Writing custom Dockerfiles</li>
+  <li>Using Docker Compose for orchestration</li>
+  <li>Managing secrets with <code>.env</code> files</li>
+  <li>Building services from scratch without pre-built images</li>
+  <li>Networking and communication between containers</li>
+  <li>Ensuring persistent storage with Docker volumes</li>
+  <li>Automating system infrastructure setup</li>
+</ul>
 
-    Adminer (if added): https://yourdomain.com/adminer
+<hr />
 
-    FTP (if added): via FTP client on port 21 or 21000 depending on your setup
+<h2>👨‍💻 Author</h2>
+<p>Made with ❤️ by <strong>[Your Name]</strong><br />
+1337 / 42 Network</p>
 
-🧹 Clean Up
+<hr />
 
-To stop and remove all containers, networks, and volumes:
+<h2>📜 License</h2>
+<p>This project is part of the 1337/42 School curriculum.<br />
+No commercial use is intended.</p>
 
-docker-compose down --volumes
-
-This also removes persistent volumes (use with caution).
-🛠️ Technologies Used
-
-    Docker
-
-    Docker Compose
-
-    NGINX
-
-    WordPress
-
-    MariaDB
-
-    OpenSSL (for self-signed certificates)
-
-    Bash scripting for automation
-
-📚 Key Learning Points
-
-    Writing custom Dockerfiles
-
-    Using Docker Compose for orchestration
-
-    Managing secrets with .env files
-
-    Building services from scratch without pre-built images
-
-    Networking and communication between containers
-
-    Ensuring persistent storage with Docker volumes
-
-    Automating system infrastructure setup
-
-👨‍💻 Author
-
-Made with ❤️ by [Your Name]
-1337 / 42 Network
+</body>
+</html>
