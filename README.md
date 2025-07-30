@@ -69,8 +69,8 @@ FTP_PASSWORD=ftppassword
 <h2>🚀 How to Run the Project</h2>
 
 <h3>1. Clone the Repository</h3>
-<pre><code>git clone https://github.com/yourusername/inception.git
-cd inception
+<pre><code>git clone https://github.com/fateemaazaahraae/inception-42.git
+cd inception-42
 </code></pre>
 
 <h3>2. Create the <code>.env</code> File</h3>
